@@ -45,6 +45,7 @@ EnvId = Literal[
     "bridge_bidding",
     "chess",
     "connect_four",
+    "connect_five",
     "gardner_chess",
     "go_9x9",
     "go_19x19",
@@ -355,8 +356,12 @@ def make(env_id: EnvId):  # noqa: C901
         return Chess()
     elif env_id == "connect_four":
         from pgx.connect_four import ConnectFour
-
+    
         return ConnectFour()
+    elif env_id == "connect_five":
+        from pgx.connect_five import ConnectFive
+
+        return ConnectFive()
     elif env_id == "gardner_chess":
         from pgx.gardner_chess import GardnerChess
 

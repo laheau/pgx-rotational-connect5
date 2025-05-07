@@ -356,6 +356,35 @@ class Visualizer:
                     "black",
                     "gray",
                 )
+        elif _state.env_id == "connect_five":
+            from pgx._src.dwg.connect_five import _make_connect_five_dwg
+
+            self.config["GRID_SIZE"] = 35
+            self.config["BOARD_WIDTH"] = 9
+            self.config["BOARD_HEIGHT"] = 10
+            self._make_dwg_group = _make_connect_five_dwg  # type:ignore
+            if (self.config["COLOR_THEME"] is None and self.config["COLOR_THEME"] == "dark") or self.config[
+                "COLOR_THEME"
+            ] == "dark":
+                self.config["COLOR_SET"] = ColorSet(
+                    "black",
+                    "darkgray",
+                    "white",
+                    "white",
+                    "#1e1e1e",
+                    "silver",
+                    "gray",
+                )
+            else:
+                self.config["COLOR_SET"] = ColorSet(
+                    "black",
+                    "white",
+                    "black",
+                    "black",
+                    "white",
+                    "black",
+                    "gray",
+                )
         elif _state.env_id in ("go_9x9", "go_19x19"):
             from pgx._src.dwg.go import _make_go_dwg
 
